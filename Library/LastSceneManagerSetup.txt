@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/MH-2.unity
+- path: Assets/Scenes/MH-1.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

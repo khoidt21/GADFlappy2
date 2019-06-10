@@ -14,10 +14,19 @@ public class PipeMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        // huy pipe khong cho pipe di chuyen
+        if(BirdController.instance != null)
+        {
+            if(BirdController.instance.flag == 1)
+            {
+                Destroy(GetComponent<PipeMove>());
+            }
+        }    
+        _PipeMovement();
+        
     }
 
-    void Move()
+    void _PipeMovement()
     {
         Vector3 vt = transform.position;
         vt.x -= speed * Time.deltaTime;

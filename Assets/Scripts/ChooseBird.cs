@@ -14,7 +14,8 @@ public class ChooseBird : MonoBehaviour
     {
         Time.timeScale = 1;
         redBird.SetActive(true);
-        StartCoroutine(StopBlack());
+        // goi ham fadeIn 
+        StartCoroutine(FindInBlack());
     }
 
     // Update is called once per frame
@@ -52,25 +53,27 @@ public class ChooseBird : MonoBehaviour
     public void playButtonClickScence()
     {
         // SceneManager.LoadScene("MH-2");
-        StartCoroutine(StartBlack());
+
+        // goi ham fadeOut khi sang scenses 2
+        StartCoroutine(FadeOutBlack());
     }
-    
+
 
     // ham FadeIn animations
-    
-    public IEnumerator StopBlack()
+
+    public IEnumerator FindInBlack()
     {
         blackAnim.Play("FadeIn");
         yield return new WaitForSecondsRealtime(1f);
         blackImage.SetActive(false);
     }
     // ham FadeOut animations va chuyen sang man hinh choi
-    public IEnumerator StartBlack()
+    public IEnumerator FadeOutBlack()
     {
         blackImage.SetActive(true);
         blackAnim.Play("FadeOut");
         yield return new WaitForSecondsRealtime(0.8f);
         SceneManager.LoadScene("MH-2");
     }
-   
+
 }

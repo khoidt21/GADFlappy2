@@ -19,9 +19,9 @@ public class PipeMachine : MonoBehaviour
 
     IEnumerator Spawner ()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
         Vector3 vt = pipe.transform.position;
-        vt.y = Random.Range(-2.5f, 2.5f);
+        vt.y = Random.Range(-1.5f, 1.5f);
         Instantiate(pipe, vt, Quaternion.identity);
         StartCoroutine(Spawner());
     }
