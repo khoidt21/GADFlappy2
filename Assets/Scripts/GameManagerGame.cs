@@ -13,12 +13,16 @@ public class GameManagerGame : MonoBehaviour
         _MakeSingleInstance();
         IsGameStartedForTheFirstTime();
     }
+
+    // Ham dat gia tri khi bat dau game
     void IsGameStartedForTheFirstTime()
     {
-        if (!PlayerPrefs.HasKey("IsGameStartedForTheFirstTime"))
+        if (!PlayerPrefs.HasKey("StartGameFirstTime"))
         {
             PlayerPrefs.SetInt(HIGH_SCORE, 0);
-            PlayerPrefs.SetInt("IsGameStartedForTheFirstTime", 0);
+            PlayerPrefs.SetInt("StartGameFirstTime", 0);
+            PlayerPrefs.SetInt("Enemy", 1);
+            PlayerPrefs.SetInt("Clound", 1);
         }
     }
     void _MakeSingleInstance()
@@ -30,8 +34,8 @@ public class GameManagerGame : MonoBehaviour
         else
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
+            DontDestroyOnLoad(gameObject);        }
+
     }
     public void SetHighScore(int score)
     {
@@ -41,5 +45,4 @@ public class GameManagerGame : MonoBehaviour
     {
         return PlayerPrefs.GetInt(HIGH_SCORE);
     }
-
 }
